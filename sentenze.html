@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procura RP | Sentenze</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page" data-page="sentenze">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="crest">PR</div>
+        <div>
+          <h2>Procura RP</h2>
+          <p>Centro fascicoli</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+          <li><a href="fascicoli.html" data-nav="fascicoli">Fascicoli</a></li>
+          <li><a href="mandati.html" data-nav="mandati">Mandati</a></li>
+          <li><a href="sentenze.html" data-nav="sentenze">Sentenze</a></li>
+          <li><a href="udienze.html" data-nav="udienze">Udienze</a></li>
+          <li><a href="persone.html" data-nav="persone">Anagrafe giudiziaria</a></li>
+          <li><a href="reparti.html" data-nav="reparti">Reparti investigativi</a></li>
+        </ul>
+      </nav>
+      <button class="logout-btn" type="button" onclick="logout()">Disconnetti</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Gestione archivio</p>
+          <h1>Sentenze</h1>
+          <p class="topbar-meta">Registro sentenze con inserimento, ricerca ed eliminazione.</p>
+        </div>
+      </header>
+
+      <section class="layout-grid form-layout">
+        <article class="panel">
+          <h2>Nuova sentenza</h2>
+          <form id="sentence-form" class="form-grid">
+            <label for="sentence-id">ID sentenza</label>
+            <input id="sentence-id" name="id" required placeholder="S-120">
+
+            <label for="sentence-case">Fascicolo collegato</label>
+            <input id="sentence-case" name="caseId" required placeholder="#897">
+
+            <label for="sentence-outcome">Esito</label>
+            <input id="sentence-outcome" name="outcome" required placeholder="Condanna">
+
+            <label for="sentence-judge">Giudice</label>
+            <input id="sentence-judge" name="judge" required placeholder="Pres. Valli">
+
+            <label for="sentence-penalty">Pena/Misura</label>
+            <input id="sentence-penalty" name="penalty" required placeholder="6 anni reclusione">
+
+            <label for="sentence-status">Stato</label>
+            <select id="sentence-status" name="status" required>
+              <option value="issued">Emessa</option>
+              <option value="appeal">In appello</option>
+              <option value="final">Definitiva</option>
+            </select>
+
+            <button type="submit">Aggiungi sentenza</button>
+          </form>
+          <p id="sentence-form-message" class="success-message"></p>
+        </article>
+
+        <article class="panel panel-large">
+          <div class="panel-head">
+            <h2>Database sentenze</h2>
+            <input id="sentenze-search" type="search" placeholder="Filtra per ID, giudice, fascicolo o esito...">
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID sentenza</th>
+                <th>Fascicolo</th>
+                <th>Esito</th>
+                <th>Giudice</th>
+                <th>Pena/Misura</th>
+                <th>Stato</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody id="sentenze-body"></tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+

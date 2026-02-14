@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procura RP | Udienze</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page" data-page="udienze">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="crest">PR</div>
+        <div>
+          <h2>Procura RP</h2>
+          <p>Centro fascicoli</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+          <li><a href="fascicoli.html" data-nav="fascicoli">Fascicoli</a></li>
+          <li><a href="mandati.html" data-nav="mandati">Mandati</a></li>
+          <li><a href="sentenze.html" data-nav="sentenze">Sentenze</a></li>
+          <li><a href="udienze.html" data-nav="udienze">Udienze</a></li>
+          <li><a href="persone.html" data-nav="persone">Anagrafe giudiziaria</a></li>
+          <li><a href="reparti.html" data-nav="reparti">Reparti investigativi</a></li>
+        </ul>
+      </nav>
+      <button class="logout-btn" type="button" onclick="logout()">Disconnetti</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Gestione archivio</p>
+          <h1>Udienze</h1>
+          <p class="topbar-meta">Inserisci, filtra ed elimina udienze dal calendario giudiziario.</p>
+        </div>
+      </header>
+
+      <section class="layout-grid form-layout">
+        <article class="panel">
+          <h2>Nuova udienza</h2>
+          <form id="hearing-form" class="form-grid">
+            <label for="hearing-id">ID udienza</label>
+            <input id="hearing-id" name="id" required placeholder="U-320">
+
+            <label for="hearing-datetime">Data e ora</label>
+            <input id="hearing-datetime" name="dateTime" required type="datetime-local">
+
+            <label for="hearing-room">Aula</label>
+            <input id="hearing-room" name="room" required placeholder="Aula 2">
+
+            <label for="hearing-case">Fascicolo collegato</label>
+            <input id="hearing-case" name="caseId" required placeholder="#901">
+
+            <label for="hearing-type">Tipologia</label>
+            <input id="hearing-type" name="type" required placeholder="Convalida arresto">
+
+            <label for="hearing-status">Stato</label>
+            <select id="hearing-status" name="status" required>
+              <option value="open">Programmato</option>
+              <option value="pending">Rinviato</option>
+              <option value="closed">Concluso</option>
+            </select>
+
+            <button type="submit">Aggiungi udienza</button>
+          </form>
+          <p id="hearing-form-message" class="success-message"></p>
+        </article>
+
+        <article class="panel panel-large">
+          <div class="panel-head">
+            <h2>Database udienze</h2>
+            <input id="udienze-search" type="search" placeholder="Filtra per ID, aula, tipologia o fascicolo...">
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID udienza</th>
+                <th>Data e ora</th>
+                <th>Aula</th>
+                <th>Fascicolo</th>
+                <th>Tipologia</th>
+                <th>Stato</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody id="udienze-body"></tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+

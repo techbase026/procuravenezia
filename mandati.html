@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procura RP | Mandati</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page" data-page="mandati">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="crest">PR</div>
+        <div>
+          <h2>Procura RP</h2>
+          <p>Centro fascicoli</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+          <li><a href="fascicoli.html" data-nav="fascicoli">Fascicoli</a></li>
+          <li><a href="mandati.html" data-nav="mandati">Mandati</a></li>
+          <li><a href="sentenze.html" data-nav="sentenze">Sentenze</a></li>
+          <li><a href="udienze.html" data-nav="udienze">Udienze</a></li>
+          <li><a href="persone.html" data-nav="persone">Anagrafe giudiziaria</a></li>
+          <li><a href="reparti.html" data-nav="reparti">Reparti investigativi</a></li>
+        </ul>
+      </nav>
+      <button class="logout-btn" type="button" onclick="logout()">Disconnetti</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Gestione archivio</p>
+          <h1>Mandati</h1>
+          <p class="topbar-meta">Inserisci, filtra ed elimina mandati dal database locale.</p>
+        </div>
+      </header>
+
+      <section class="layout-grid form-layout">
+        <article class="panel">
+          <h2>Nuovo mandato</h2>
+          <form id="warrant-form" class="form-grid">
+            <label for="warrant-id">ID mandato</label>
+            <input id="warrant-id" name="id" required placeholder="M-51">
+
+            <label for="warrant-case">Fascicolo collegato</label>
+            <input id="warrant-case" name="caseId" required placeholder="#901">
+
+            <label for="warrant-type">Tipologia</label>
+            <input id="warrant-type" name="type" required placeholder="Perquisizione">
+
+            <label for="warrant-signer">Firmatario</label>
+            <input id="warrant-signer" name="signer" required placeholder="PM De Luca">
+
+            <label for="warrant-status">Stato</label>
+            <select id="warrant-status" name="status" required>
+              <option value="active">Attivo</option>
+              <option value="pending">In lavorazione</option>
+              <option value="closed">Concluso</option>
+            </select>
+
+            <button type="submit">Aggiungi mandato</button>
+          </form>
+          <p id="warrant-form-message" class="success-message"></p>
+        </article>
+
+        <article class="panel panel-large">
+          <div class="panel-head">
+            <h2>Database mandati</h2>
+            <input id="mandati-search" type="search" placeholder="Filtra per ID, PM, tipo o fascicolo...">
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID mandato</th>
+                <th>Fascicolo</th>
+                <th>Tipologia</th>
+                <th>Firmatario</th>
+                <th>Stato</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody id="mandati-body"></tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+

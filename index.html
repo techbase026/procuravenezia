@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procura RP | Accesso Riservato</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+  <header class="ministerial-header">
+    <div class="ministerial-inner">
+      <div class="ministerial-mark">PR</div>
+      <div>
+        <p class="ministerial-kicker">Repubblica RP</p>
+        <h2>Ministero della Giustizia</h2>
+        <p class="ministerial-subtitle">Dipartimento per gli Affari di Giustizia - Procura della Repubblica</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="login-shell">
+    <section class="login-brand-panel">
+      <p class="eyebrow">Portale servizi interni</p>
+      <h1>Sistema Informativo della Procura</h1>
+      <p class="lead">Accesso ai registri e agli applicativi per la gestione istituzionale di procedimenti, udienze, mandati e attivita requirenti.</p>
+
+      <div class="protocol-banner">
+        <p>Protocollo di Sicurezza</p>
+        <strong>Area classificata - riservata a magistrati, cancelleria e personale autorizzato</strong>
+      </div>
+
+      <ul class="protocol-list">
+        <li>Tracciamento sessioni e operazioni su registro audit interno.</li>
+        <li>Conformita operativa alle direttive della Procura Centrale RP.</li>
+        <li>Scambio dati cifrato tra unita investigative e uffici requirenti.</li>
+      </ul>
+
+      <div class="status-grid">
+        <article>
+          <span class="status-label">Fascicoli aperti</span>
+          <strong>47</strong>
+        </article>
+        <article>
+          <span class="status-label">Mandati attivi</span>
+          <strong>13</strong>
+        </article>
+        <article>
+          <span class="status-label">Udienze oggi</span>
+          <strong>6</strong>
+        </article>
+        <article>
+          <span class="status-label">Unita investigative</span>
+          <strong>9</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="login-card">
+      <div class="crest">PR</div>
+      <h2>Autenticazione Utente</h2>
+      <p>Inserire credenziali istituzionali per l'accesso ai servizi ministeriali della Procura RP.</p>
+
+      <label for="email">Email istituzionale</label>
+      <input type="email" id="email" placeholder="nome.cognome@procura-rp.it">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Inserisci password">
+
+      <button type="button" onclick="login()">Accedi al sistema</button>
+      <p id="error" class="error"></p>
+
+      <div class="credentials-note">
+        <span>Account demo ruoli</span>
+        <code>pm@rpserver.it / PM123! | magistrato@rpserver.it / Magistrato123! | fdo@rpserver.it / FDO123!</code>
+      </div>
+
+      <p class="login-legal">Avviso: ogni accesso e attivita sono registrati. L'uso improprio del sistema comporta responsabilita disciplinari e penali.</p>
+    </section>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

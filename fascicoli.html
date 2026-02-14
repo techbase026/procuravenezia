@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procura RP | Fascicoli</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page" data-page="fascicoli">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="crest">PR</div>
+        <div>
+          <h2>Procura RP</h2>
+          <p>Centro fascicoli</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+          <li><a href="fascicoli.html" data-nav="fascicoli">Fascicoli</a></li>
+          <li><a href="mandati.html" data-nav="mandati">Mandati</a></li>
+          <li><a href="sentenze.html" data-nav="sentenze">Sentenze</a></li>
+          <li><a href="udienze.html" data-nav="udienze">Udienze</a></li>
+          <li><a href="persone.html" data-nav="persone">Anagrafe giudiziaria</a></li>
+          <li><a href="reparti.html" data-nav="reparti">Reparti investigativi</a></li>
+        </ul>
+      </nav>
+      <button class="logout-btn" type="button" onclick="logout()">Disconnetti</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Gestione archivio</p>
+          <h1>Fascicoli giudiziari</h1>
+          <p class="topbar-meta">Crea, aggiorna ed elimina i fascicoli dal database locale.</p>
+        </div>
+      </header>
+
+      <section class="layout-grid form-layout">
+        <article class="panel">
+          <h2>Nuovo fascicolo</h2>
+          <form id="case-form" class="form-grid">
+            <label for="case-id">ID fascicolo</label>
+            <input id="case-id" name="id" required placeholder="#905">
+
+            <label for="case-title">Reato principale</label>
+            <input id="case-title" name="title" required placeholder="Traffico di stupefacenti">
+
+            <label for="case-state">Stato</label>
+            <select id="case-state" name="state" required>
+              <option value="open">Aperto</option>
+              <option value="inquiry">Indagine</option>
+              <option value="urgent">Urgente</option>
+              <option value="closed">Chiuso</option>
+            </select>
+
+            <label for="case-prosecutor">PM assegnato</label>
+            <input id="case-prosecutor" name="prosecutor" required placeholder="PM Ferri">
+
+            <label for="case-priority">Priorita</label>
+            <select id="case-priority" name="priority" required>
+              <option value="Alta">Alta</option>
+              <option value="Media">Media</option>
+              <option value="Bassa">Bassa</option>
+            </select>
+
+            <button type="submit">Aggiungi fascicolo</button>
+          </form>
+          <p id="case-form-message" class="success-message"></p>
+        </article>
+
+        <article class="panel panel-large">
+          <div class="panel-head">
+            <h2>Database fascicoli</h2>
+            <input id="fascicoli-search" type="search" placeholder="Filtra per ID, reato o PM...">
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Reato principale</th>
+                <th>Stato</th>
+                <th>PM assegnato</th>
+                <th>Priorita</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody id="fascicoli-body"></tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+

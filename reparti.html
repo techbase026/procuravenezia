@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procura RP | Reparti Investigativi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page" data-page="reparti">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="crest">PR</div>
+        <div>
+          <h2>Procura RP</h2>
+          <p>Centro fascicoli</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+          <li><a href="fascicoli.html" data-nav="fascicoli">Fascicoli</a></li>
+          <li><a href="mandati.html" data-nav="mandati">Mandati</a></li>
+          <li><a href="sentenze.html" data-nav="sentenze">Sentenze</a></li>
+          <li><a href="udienze.html" data-nav="udienze">Udienze</a></li>
+          <li><a href="persone.html" data-nav="persone">Anagrafe giudiziaria</a></li>
+          <li><a href="reparti.html" data-nav="reparti">Reparti investigativi</a></li>
+        </ul>
+      </nav>
+      <button class="logout-btn" type="button" onclick="logout()">Disconnetti</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Gestione archivio</p>
+          <h1>Reparti investigativi</h1>
+          <p class="topbar-meta">Aggiungi, monitora ed elimina reparti dal database locale.</p>
+        </div>
+      </header>
+
+      <section class="layout-grid form-layout">
+        <article class="panel">
+          <h2>Nuovo reparto</h2>
+          <form id="department-form" class="form-grid">
+            <label for="department-id">ID reparto</label>
+            <input id="department-id" name="id" required placeholder="R-09">
+
+            <label for="department-name">Nome unita</label>
+            <input id="department-name" name="name" required placeholder="Unita cybercrime">
+
+            <label for="department-chief">Responsabile</label>
+            <input id="department-chief" name="chief" required placeholder="Isp. Sala">
+
+            <label for="department-cases">Fascicoli attivi</label>
+            <input id="department-cases" name="activeCases" required type="number" min="0" placeholder="5">
+
+            <label for="department-status">Stato</label>
+            <select id="department-status" name="status" required>
+              <option value="operational">Operativo</option>
+              <option value="understaffed">Sotto organico</option>
+              <option value="suspended">Sospeso</option>
+            </select>
+
+            <button type="submit">Aggiungi reparto</button>
+          </form>
+          <p id="department-form-message" class="success-message"></p>
+        </article>
+
+        <article class="panel panel-large">
+          <div class="panel-head">
+            <h2>Database reparti</h2>
+            <input id="reparti-search" type="search" placeholder="Filtra per ID, unita o responsabile...">
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID reparto</th>
+                <th>Nome unita</th>
+                <th>Responsabile</th>
+                <th>Fascicoli attivi</th>
+                <th>Stato</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody id="reparti-body"></tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procura RP | Anagrafe</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page" data-page="persone">
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="crest">PR</div>
+        <div>
+          <h2>Procura RP</h2>
+          <p>Centro fascicoli</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" data-nav="dashboard">Dashboard</a></li>
+          <li><a href="fascicoli.html" data-nav="fascicoli">Fascicoli</a></li>
+          <li><a href="mandati.html" data-nav="mandati">Mandati</a></li>
+          <li><a href="sentenze.html" data-nav="sentenze">Sentenze</a></li>
+          <li><a href="udienze.html" data-nav="udienze">Udienze</a></li>
+          <li><a href="persone.html" data-nav="persone">Anagrafe giudiziaria</a></li>
+          <li><a href="reparti.html" data-nav="reparti">Reparti investigativi</a></li>
+        </ul>
+      </nav>
+      <button class="logout-btn" type="button" onclick="logout()">Disconnetti</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Gestione archivio</p>
+          <h1>Anagrafe giudiziaria</h1>
+          <p class="topbar-meta">Aggiungi, filtra ed elimina soggetti coinvolti nei procedimenti.</p>
+        </div>
+      </header>
+
+      <section class="layout-grid form-layout">
+        <article class="panel">
+          <h2>Nuovo soggetto</h2>
+          <form id="person-form" class="form-grid">
+            <label for="person-id">ID cittadino</label>
+            <input id="person-id" name="id" required placeholder="C-245">
+
+            <label for="person-name">Nominativo</label>
+            <input id="person-name" name="name" required placeholder="Mario Rossi">
+
+            <label for="person-role">Ruolo processuale</label>
+            <select id="person-role" name="role" required>
+              <option value="Indagato">Indagato</option>
+              <option value="Persona informata">Persona informata</option>
+              <option value="Parte offesa">Parte offesa</option>
+              <option value="Testimone">Testimone</option>
+            </select>
+
+            <label for="person-case">Fascicolo collegato</label>
+            <input id="person-case" name="caseId" required placeholder="#901">
+
+            <button type="submit">Aggiungi soggetto</button>
+          </form>
+          <p id="person-form-message" class="success-message"></p>
+        </article>
+
+        <article class="panel panel-large">
+          <div class="panel-head">
+            <h2>Database anagrafe</h2>
+            <input id="persone-search" type="search" placeholder="Filtra per ID, nome, ruolo o fascicolo...">
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID cittadino</th>
+                <th>Nominativo</th>
+                <th>Ruolo processuale</th>
+                <th>Fascicolo collegato</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody id="persone-body"></tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
