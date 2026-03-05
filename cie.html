@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accesso CIE | Procura RP</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+  <header class="gov-header">
+    <div class="gov-topbar">Governo Italiano</div>
+    <div class="gov-brandbar">
+      <div class="gov-brand-inner">
+        <div class="gov-logo" aria-hidden="true"></div>
+        <h2>Ministero della Giustizia - Procura RP</h2>
+        <div class="lang-switch">
+          <button type="button">ITA</button>
+          <button type="button">ENG</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="login-shell id-shell">
+    <section class="login-brand-panel id-brand">
+      <p class="eyebrow">Sistema di autenticazione</p>
+      <h1>CIE - Carta d'identita elettronica</h1>
+      <p class="lead">Accedi con la tua Carta d'Identita Elettronica tramite app mobile o lettore di smart card.</p>
+
+      <div class="protocol-banner">
+        <p>Sessione protetta</p>
+        <strong>Autenticazione con CIE livello 2</strong>
+      </div>
+
+      <ul class="protocol-list">
+        <li>Conferma la sessione tramite app o PIN.</li>
+        <li>Accesso consentito solo a personale autorizzato.</li>
+      </ul>
+
+      <div class="notice-panel">
+        <h3>Note operative</h3>
+        <ul>
+          <li>Utilizza la tua CIE con PIN personale attivo.</li>
+          <li>Verifica la connessione del lettore o dell'app CIE ID.</li>
+          <li>Le sessioni vengono tracciate nel registro di audit.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="login-card id-card">
+      <div class="id-provider cie-provider">CIE</div>
+      <h2>Modalita di accesso</h2>
+      <p>Demo locale: seleziona la modalita e inserisci le credenziali simulate.</p>
+
+      <div class="idp-grid">
+        <button type="button" class="idp-btn">App CIE ID</button>
+        <button type="button" class="idp-btn">Lettore Smart Card</button>
+      </div>
+
+      <form class="id-credentials" onsubmit="event.preventDefault(); loginWithCredentials(document.getElementById('cie-email').value, document.getElementById('cie-password').value);">
+        <label for="cie-email">Email CIE</label>
+        <input type="email" id="cie-email" placeholder="nome.cognome@cie.it">
+
+        <label for="cie-password">Password</label>
+        <input type="password" id="cie-password" placeholder="********">
+
+        <button type="submit">Entra con CIE</button>
+        <p id="error" class="error"></p>
+      </form>
+
+      <a class="inline-link" href="index.html">Torna al login</a>
+      <p class="login-legal">Accesso riservato. Uso improprio perseguibile ai sensi delle normative vigenti.</p>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.querySelectorAll(".idp-grid").forEach((grid) => {
+      const buttons = Array.from(grid.querySelectorAll(".idp-btn"));
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("selected"));
+          btn.classList.add("selected");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

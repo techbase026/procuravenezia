@@ -7,26 +7,29 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="login-page">
-  <header class="ministerial-header">
-    <div class="ministerial-inner">
-      <div class="ministerial-mark">PR</div>
-      <div>
-        <p class="ministerial-kicker">Repubblica RP</p>
-        <h2>Ministero della Giustizia</h2>
-        <p class="ministerial-subtitle">Dipartimento per gli Affari di Giustizia - Procura della Repubblica</p>
+  <header class="gov-header">
+    <div class="gov-topbar">Governo Italiano</div>
+    <div class="gov-brandbar">
+      <div class="gov-brand-inner">
+        <div class="gov-logo" aria-hidden="true"></div>
+        <h2>Ministero della Giustizia - Procura RP</h2>
+        <div class="lang-switch">
+          <button type="button">ITA</button>
+          <button type="button">ENG</button>
+        </div>
       </div>
     </div>
   </header>
 
   <div class="login-shell">
     <section class="login-brand-panel">
-      <p class="eyebrow">Portale servizi interni</p>
-      <h1>Sistema Informativo della Procura</h1>
+      <p class="eyebrow">Portale servizi istituzionali</p>
+      <h1>Ministero della Giustizia - Procura RP</h1>
       <p class="lead">Accesso ai registri e agli applicativi per la gestione istituzionale di procedimenti, udienze, mandati e attivita requirenti.</p>
 
       <div class="protocol-banner">
-        <p>Protocollo di Sicurezza</p>
-        <strong>Area classificata - riservata a magistrati, cancelleria e personale autorizzato</strong>
+        <p>Area riservata</p>
+        <strong>Accesso consentito esclusivamente al personale autorizzato</strong>
       </div>
 
       <ul class="protocol-list">
@@ -38,43 +41,66 @@
       <div class="status-grid">
         <article>
           <span class="status-label">Fascicoli aperti</span>
-          <strong>47</strong>
+          <strong id="stat-cases">0</strong>
         </article>
         <article>
           <span class="status-label">Mandati attivi</span>
-          <strong>13</strong>
+          <strong id="stat-warrants">0</strong>
         </article>
         <article>
           <span class="status-label">Udienze oggi</span>
-          <strong>6</strong>
+          <strong id="stat-hearings">0</strong>
         </article>
         <article>
           <span class="status-label">Unita investigative</span>
-          <strong>9</strong>
+          <strong id="stat-departments">0</strong>
         </article>
+      </div>
+
+      <div class="notice-panel">
+        <h3>Avvisi di servizio</h3>
+        <ul>
+          <li>Nuove linee guida sulla gestione dei fascicoli urgenti attive dal 15/02.</li>
+        </ul>
       </div>
     </section>
 
-    <section class="login-card">
-      <div class="crest">PR</div>
-      <h2>Autenticazione Utente</h2>
-      <p>Inserire credenziali istituzionali per l'accesso ai servizi ministeriali della Procura RP.</p>
+    <section class="login-card ministero-login">
+      <h2 class="login-title">Login</h2>
+      <div class="access-rules">Regole di accesso dal 01/10/2021</div>
 
-      <label for="email">Email istituzionale</label>
-      <input type="email" id="email" placeholder="nome.cognome@procura-rp.it">
+      <form class="login-form login-box" onsubmit="event.preventDefault(); login();">
+        <div class="label-row">
+          <label for="email">Username</label>
+          <a class="helper-link" href="#" onclick="return false;">Username dimenticato?</a>
+        </div>
+        <input type="email" id="email" placeholder="Inserisci il tuo username">
 
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Inserisci password">
+        <div class="label-row">
+          <label for="password">Password</label>
+          <a class="helper-link" href="#" onclick="return false;">Password dimenticata?</a>
+        </div>
+        <input type="password" id="password" placeholder="Inserisci la password">
 
-      <button type="button" onclick="login()">Accedi al sistema</button>
-      <p id="error" class="error"></p>
+        <button type="submit" class="primary-login">ENTRA</button>
+        <p id="error" class="error"></p>
+      </form>
 
-      <div class="credentials-note">
-        <span>Account demo ruoli</span>
-        <code>pm@rpserver.it / PM123! | magistrato@rpserver.it / Magistrato123! | fdo@rpserver.it / FDO123!</code>
+      <div class="login-divider"><span>OPPURE</span></div>
+
+      <div class="alt-login">
+        <a class="alt-btn" href="spid.html"><span class="alt-icon">SPID</span> Entra con SPID</a>
+        <a class="alt-btn" href="cie.html"><span class="alt-icon">CIE</span> Entra con CIE</a>
+        <button type="button" class="alt-btn muted" title="Non disponibile"><span class="alt-icon">CNS</span> Entra con CNS</button>
+        <button type="button" class="alt-btn muted" title="Non disponibile"><span class="alt-icon">EIDAS</span> Entra con EIDAS</button>
       </div>
 
-      <p class="login-legal">Avviso: ogni accesso e attivita sono registrati. L'uso improprio del sistema comporta responsabilita disciplinari e penali.</p>
+      
+
+      <div class="legal-box">
+        <p class="login-legal"></p>
+        
+      </div>
     </section>
   </div>
 
