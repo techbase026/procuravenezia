@@ -1,6 +1,7 @@
 ﻿const SESSION_KEY = "procura_session";
 const USERS = [
   { email: "franco.bruno@spid.it", password: "Francy09@", role: "pm", label: "Pubblico Ministero" },
+  { email: "ale@spid.it", password: "Ale", role: "pm", label: "Pubblico Ministero" },
   { email: "franco.bruno@pm.it", password: "Francy09@", role: "pm", label: "Pubblico Ministero" }
 ];
 
